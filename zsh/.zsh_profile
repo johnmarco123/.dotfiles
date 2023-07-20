@@ -1,0 +1,20 @@
+bindkey -s ^f "tmux-sessionizer\n"
+
+gadd() {
+    git add .
+    git commit -m "WOP"
+    git push
+}
+
+wikisave() {
+    cd ~/vimwiki
+    ansible-vault encrypt *
+    gadd
+    ansible-vault decrypt *
+}
+
+draw() {
+    cd ~/personal/drawing-app/
+    python3 -m http.server
+    # ~/school/projects/rust_server/target/release/rust_server
+}
