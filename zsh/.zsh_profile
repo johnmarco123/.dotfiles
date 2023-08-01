@@ -2,19 +2,19 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 gadd() {
     git add .
-    git commit -m "WOP"
+    git commit -m "Initial Commit"
     git push
 }
 
 wikisave() {
-    cd ~/vimwiki
-    ansible-vault encrypt *
-    gadd
-    ansible-vault decrypt *
+   ansible-vault encrypt ~/vimwiki/*
+   git -C ~/vimwiki add .
+   git -C ~/vimwiki commit -m "wiki update"
+   git -C ~/vimwiki push
+   ansible-vault decrypt ~/vimwiki/*
 }
 
 draw() {
-    cd ~/personal/drawing-app/
+    cd ~/.dotfiles/personal/drawing-app/
     python3 -m http.server
-    # ~/school/projects/rust_server/target/release/rust_server
 }
