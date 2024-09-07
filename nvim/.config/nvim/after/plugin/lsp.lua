@@ -5,7 +5,6 @@ local lsp = require('lsp-zero')
 lsp.preset()
 
 lsp.ensure_installed({
-	'tsserver',
 	'eslint',
 	'lua_ls',
 	'rust_analyzer',
